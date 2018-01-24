@@ -1,31 +1,37 @@
 console.log("In the js file")
 
+
+// let width = 1100 - margin.left - margin.right; // 1060
+// let height = 420 - margin.top - margin.bottom; // 510
+// let padding = 20;
 // Set up Variables
 let xdScale, ydScale, xdAxis, ydAxis, area;  //Empty, for now
-let dataset = graphData
+let dataset = trendData
 
 //Width and height
-let margin = {top: 20, right: 10, bottom: 20, left: 10}
-let w = 1000 - margin.left - margin.right;
-let h = 300 - margin.top - margin.bottom;
-let padding = 20;
+let m = {top: 30, right: 20, bottom: 20, left: 60}
+let p = {top: 30, right: 30, bottom: 50, left: 50}
+
+let w = 1100 - m.left - m.right;
+let h = 420 - m.top - m.bottom;
+// let padding = 20;
 
 // For converting strings to Dates
-let parseTime = d3.timeParse("%Y-%m-%d");
+let parsexTime = d3.timeParse("%Y-%m-%d");
 
 //For converting Dates to strings
-let formatTime = d3.timeFormat("%Y");
+let formatxTime = d3.timeFormat("%Y");
 
 // Convert  Dates
 for (let i = 0; i < dataset.length; i++){
-  dataset[i]['date'] = parseTime(dataset[i]['date'])
+  dataset[i]['date'] = parsexTime(dataset[i]['date'])
 } // end for
 
-let stack = d3.stack()
+let stackx = d3.stack()
     .order(d3.stackOrderDescending);
 
 // //Easy colors accessible via a 10-step ordinal scale
-var colors =  d3.scaleOrdinal(d3.schemeCategory10);
+var colorsxd =  d3.scaleOrdinal(d3.schemeCategory10);
 
 console.log("Here is the dataset")
 console.log(dataset);
@@ -37,15 +43,15 @@ let keys = Object.keys(dataset[0]).slice(1);
 console.log(keys);
 
 //Tell stack function where to find the keys
-stack.keys(keys)
+stackx.keys(keys)
 .value(function value(d, key) {
   return d[key].usage;
 });
 
 //Stack the data and log it out
 console.log("here is the series")
-let series = stack(dataset);
-console.log(series);
+let seriesx = stackx(dataset);
+console.log(seriesx);
 
 // MAKE THE CHART
 
@@ -58,7 +64,7 @@ xdScale = d3.scaleTime()
   d3.min(dataset, function(d) { return d.date; }),
   d3.max(dataset, function(d) { return d.date; })
 ])
-.range([padding, w - padding * 2]);
+.range([p.left, w - p.right * 2]);
 
 ydScale = d3.scaleLinear()
 .domain([
@@ -75,18 +81,18 @@ ydScale = d3.scaleLinear()
     return sum;
   })
 ])
-.range([h - padding, padding / 2])
+.range([h - p.bottom, p.top])
 .nice();
 
 //Define axes
 xdAxis = d3.axisBottom()
-.scale(xScale)
+.scale(xdScale)
 .ticks(10)
-.tickFormat(formatTime);
+.tickFormat(formatxTime);
 
 //Define Y axis
 ydAxis = d3.axisRight()
-.scale(yScale)
+.scale(ydScale)
 .ticks(5);
 
 //Define area generator
@@ -106,10 +112,9 @@ var svg = d3.select("aside")
 .attr("height", h);
 
 
-
 //Create areas
 svg.selectAll("path")
-.data(series)
+.data(seriesx)
 .enter()
 .append("path")
 .attr("class", "area")
@@ -125,10 +130,10 @@ svg.selectAll("path")
 //Create axes
 svg.append("g")
 .attr("class", "axis x")
-.attr("transform", "translate(0," + (h - padding) + ")")
+.attr("transform", "translate(0," + (h - p.top) + ")")
 .call(xdAxis);
 
 svg.append("g")
 .attr("class", "axis y")
-.attr("transform", "translate(" + (w - padding * 2) + ",0)")
+.attr("transform", "translate(" + (w - p.left * 2) + ",0)")
 .call(ydAxis);

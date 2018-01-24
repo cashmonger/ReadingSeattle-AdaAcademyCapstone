@@ -1,1 +1,13 @@
 
+<script>
+var graphData = {{ data | tojson | safe }};
+</script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="../static/js/display.js"></script>
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+{% endblock %}

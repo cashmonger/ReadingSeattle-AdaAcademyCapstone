@@ -7,8 +7,7 @@
 
   <nav class="home left">
     <h1><a href="{{ url_for('index') }}">HOME</a></h1>
-    <h1><a href="{{ url_for('display') }}">HOME</a></h1>
-
+     <h1><a href="{{ url_for('display') }}">DISPLAY</a></h1>
   </nav>
 
   <div class=gutter1>
@@ -53,15 +52,11 @@
 
 
 <aside class='viz results__viz'>
-
-
-
   {% if data %}
     <script>
     var trendData = {{ data | tojson | safe }};
     </script>
   {% endif %}
-
 </aside>
 
 <section class="results__scroll right">
@@ -90,10 +85,7 @@
       <div class='viz button-group'>
         <button>1 Hit WondErs</button>
         <button>Seattle StereoTypes</button>
-
-        <!-- <button action="{{ url_for('display') }}" id="usage"> Digital Divides </button> -->
-          <a href="{{ url_for('display') }}">Digital Divides</a>
-
+        <button>Digital Divides</button>
         <button>Best Sellers</button>
       </div>
 </section>
@@ -121,10 +113,12 @@
 
 <link rel="stylesheet" href="../static/css/main.css">
 
-<link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="../static/js/display.js"></script>
 <script type="text/javascript" src="../static/js/trends.js"></script>
+
 {% endblock %}

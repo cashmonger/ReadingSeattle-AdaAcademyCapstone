@@ -29,7 +29,7 @@ for (let i = 0; i < trendDataset.length; i++){
 // Set up Stack Method
 // Keys are the categories we want to add to our stack
 let stack = d3.stack()
-  .keys(['BOOK', 'EBOOK', 'AUDIOBOOK'])
+  .keys(['BOOK', 'EBOOK', 'AUDIOBOOK', 'OTHER'])
   .order(d3.stackOrderDescending);
 
 let series = stack(trendDataset);

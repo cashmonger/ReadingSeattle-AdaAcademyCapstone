@@ -51,7 +51,7 @@ def index():
 
 
 
-@app.route('/display', methods=['GET', 'POST'])
+@app.route('/display')
 def display():
     searchform = SearchForm()
     checkouts = Checkout.query.all()
@@ -68,8 +68,8 @@ def display():
         })
 
     # return render_template('display.html', data=checkouts_data)
+    return render_template('index.html', data=checkouts_data, form=searchform)
     # return render_template('display.html', data=checkouts_data)
-    return render_template('display.html', data=checkouts_data)
 
 # results = Text.query.filter(Text.title.like('%'x'%'')).first()
 # results = Text.query.filter(Text.title.like(%searchform.search_terms.data%)).first()

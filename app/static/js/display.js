@@ -9,7 +9,7 @@ let xdScale, ydScale, xdAxis, ydAxis, area;  //Empty, for now
 let dataset = graphData
 
 //Width and height
-let m = {top: 30, right: 20, bottom: 20, left: 60}
+let m = {top: 30, right: 20, bottom: 20, left: 130}
 let p = {top: 30, right: 30, bottom: 50, left: 50}
 
 let w = 1100 - m.left - m.right;

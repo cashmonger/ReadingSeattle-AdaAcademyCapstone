@@ -64,7 +64,8 @@ xdScale = d3.scaleTime()
   d3.min(dataset, function(d) { return d.date; }),
   d3.max(dataset, function(d) { return d.date; })
 ])
-.range([p.left, w - p.right * 2]);
+.range([0, w])
+// .range([p.left, w - p.right * 2]);
 
 ydScale = d3.scaleLinear()
 .domain([
@@ -106,10 +107,17 @@ area = d3.area()
 
 //Create SVG element
 // var svg = d3.select("body")
+// var svg = d3.select("aside")
+// .append("svg")
+// .attr("width", w)
+// .attr("height", h);
 var svg = d3.select("aside")
-.append("svg")
-.attr("width", w)
-.attr("height", h);
+      .append("svg")
+      .attr("width", w + m.left + m.right)
+      .attr("height", h + m.top + m.bottom)
+      .append("g")
+      .attr("class", "maingroup")
+      .attr("transform", "translate(" + m.left + "," + m.top + ")");
 
 
 //Create areas
@@ -130,7 +138,7 @@ svg.selectAll("path")
 //Create axes
 svg.append("g")
 .attr("class", "axis x")
-.attr("transform", "translate(0," + (h - p.top) + ")")
+.attr("transform", "translate(0," + (h - p.bottom) + ")")
 .call(xdAxis);
 
 svg.append("g")

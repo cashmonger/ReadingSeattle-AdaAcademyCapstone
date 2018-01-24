@@ -3,12 +3,12 @@ from flask import render_template, request, flash, redirect, url_for, jsonify, j
 
 from werkzeug.urls import url_parse
 
-from app import app
+from app import application
 from app.models import Checkout, Usage, Text
 from app.forms import SearchForm
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
+@application.route('/index', methods=['GET', 'POST'])
 def index():
     searchform = SearchForm()
 
@@ -52,7 +52,7 @@ def index():
 
 
 
-@app.route('/display')
+@application.route('/display')
 def display():
     searchform = SearchForm()
     checkouts = Checkout.query.all()

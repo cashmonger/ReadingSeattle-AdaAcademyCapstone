@@ -16,6 +16,4 @@ db = SQLAlchemy(application)
 db.Model.metadata.reflect(db.engine)
 
 
-
-
 from app import routes, models

@@ -4,7 +4,7 @@ from wtforms import StringField, SelectField, TextAreaField, BooleanField, Submi
 
 from wtforms.validators import ValidationError, DataRequired, EqualTo, Length
 
-from app.models import Checkout, Usage, Text
+from app.models import Checkout, Text
 
 class SearchForm(FlaskForm):
     choices = [('Books', 'Books'),

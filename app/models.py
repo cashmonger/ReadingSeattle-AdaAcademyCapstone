@@ -1,18 +1,5 @@
 from app import db
 
-class Usage(db.Model):
-    __table__ = db.Model.metadata.tables['usage']
-
-    def __init__(self):
-        self.year = year
-        self.month = month
-        self.system = system
-        self.year_total = year_total
-        self.date = date
-
-    def __repr__(self):
-        return '<Usage {}>'.format(self.year)
-
 class Checkout(db.Model):
     __table__ = db.Model.metadata.tables['checkout']
 

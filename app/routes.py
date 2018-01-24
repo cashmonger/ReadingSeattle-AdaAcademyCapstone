@@ -4,7 +4,7 @@ from flask import render_template, request, flash, redirect, url_for, jsonify, j
 from werkzeug.urls import url_parse
 
 from app import application
-from app.models import Checkout, Usage, Text
+from app.models import Checkout, Text
 from app.forms import SearchForm
 
 @application.route('/', methods=['GET', 'POST'])
@@ -71,15 +71,3 @@ def display():
     # return render_template('display.html', data=checkouts_data)
     return render_template('index.html', cdata=checkouts_data, form=searchform)
     # return render_template('display.html', data=checkouts_data)
-
-# results = Text.query.filter(Text.title.like('%'x'%'')).first()
-# results = Text.query.filter(Text.title.like(%searchform.search_terms.data%)).first()
-# results = Text.query.filter(Text.title.like('%' + 'underground railroad' + '%')).all()
-# a = Text.query.filter(Text.title.like('%' + 'anansi boys' + '%'))
-
-# results = Text.query.filter(Text.annualcount >=searchform.search_terms.data).first()
-# z = Checkout.query.filter(Checkout.freegal >= 0)
-# @app.route('/results', methods=['GET', 'POST'])
-# def results():
-#     text = Text.query.get(23)
-#     return render_template('results.html', text=text)

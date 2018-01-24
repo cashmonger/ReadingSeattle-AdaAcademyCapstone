@@ -11,3 +11,5 @@ var graphData = {{ data | tojson | safe }};
 
 
 {% endblock %}
+<script type="text/javascript" src="../static/js/display.js"></script>
+<script type="text/javascript" src="../static/js/trends.js"></script>

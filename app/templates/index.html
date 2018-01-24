@@ -53,10 +53,18 @@
 
 <aside class='viz results__viz'>
   {% if data %}
-    <script>
-    var trendData = {{ data | tojson | safe }};
+    <script>var trendData = {{ data | tojson | safe }};</script>
+    <script type="text/javascript" src="../static/js/trends.js">
     </script>
   {% endif %}
+
+  {% if cdata %}
+  <script>var graphData = {{ cdata | tojson | safe }};</script>
+  <script type="text/javascript" src="../static/js/display.js">
+
+  </script>
+  {% endif %}
+
 </aside>
 
 <section class="results__scroll right">
@@ -75,6 +83,8 @@
       <td>{{  item.annualcount }}</td>
     </tr>
     {% endfor %}
+    {% else %}
+      <h3>Nothing is here</h3>
     {% endif %}
   </table>
 </section>
@@ -118,7 +128,6 @@
 
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script type="text/javascript" src="../static/js/display.js"></script>
-<script type="text/javascript" src="../static/js/trends.js"></script>
+
 
 {% endblock %}

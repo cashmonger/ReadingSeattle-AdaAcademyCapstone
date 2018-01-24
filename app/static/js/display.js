@@ -1,4 +1,4 @@
-console.log("In the js file")
+console.log("In the display file")
 
 
 // let width = 1100 - margin.left - margin.right; // 1060
@@ -6,7 +6,7 @@ console.log("In the js file")
 // let padding = 20;
 // Set up Variables
 let xdScale, ydScale, xdAxis, ydAxis, area;  //Empty, for now
-let dataset = trendData
+let dataset = graphData
 
 //Width and height
 let m = {top: 30, right: 20, bottom: 20, left: 60}
@@ -91,7 +91,7 @@ xdAxis = d3.axisBottom()
 .tickFormat(formatxTime);
 
 //Define Y axis
-ydAxis = d3.axisRight()
+ydAxis = d3.axisLeft()
 .scale(ydScale)
 .ticks(5);
 
@@ -135,5 +135,5 @@ svg.append("g")
 
 svg.append("g")
 .attr("class", "axis y")
-.attr("transform", "translate(" + (w - p.left * 2) + ",0)")
+// .attr("transform", "translate(" + (w - p.left * 2) + ",0)")
 .call(ydAxis);

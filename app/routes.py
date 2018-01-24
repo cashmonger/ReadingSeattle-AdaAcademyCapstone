@@ -13,6 +13,7 @@ def index():
     searchform = SearchForm()
 
     if request.method == 'POST':
+        cdata = []
         results = Text.query.filter(Text.creator.like('%' + searchform.author_last.data + '%'),Text.title.like('%' + searchform.search_terms.data + '%')).all()
 
         results_data = [
@@ -45,7 +46,7 @@ def index():
                 else:
                     i += 1
 
-        return render_template('index.html', text=results, data=results_data, form=searchform)
+        return render_template('index.html', text=results, data=results_data, form=searchform, cdata=cdata)
 
     return render_template('index.html', form=searchform )
 
@@ -68,7 +69,7 @@ def display():
         })
 
     # return render_template('display.html', data=checkouts_data)
-    return render_template('index.html', data=checkouts_data, form=searchform)
+    return render_template('index.html', cdata=checkouts_data, form=searchform)
     # return render_template('display.html', data=checkouts_data)
 
 # results = Text.query.filter(Text.title.like('%'x'%'')).first()

@@ -1,0 +1,15 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+    <script>
+    var graphData = {{ data | tojson | safe }};
+    </script>
+
+
+
+    <script type="text/javascript" src="../static/js/display.js"></script>
+
+{% endblock %}

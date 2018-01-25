@@ -1,18 +1,14 @@
 console.log("In the display file")
 
-
-// let width = 1100 - margin.left - margin.right; // 1060
-// let height = 420 - margin.top - margin.bottom; // 510
-// let padding = 20;
 // Set up Variables
 let xdScale, ydScale, xdAxis, ydAxis, area;  //Empty, for now
 let dataset = graphData
 
 //Width and height
-let m = {top: 30, right: 20, bottom: 20, left: 130}
+let m = {top: 30, right: 30, bottom: 20, left: 100}
 let p = {top: 30, right: 30, bottom: 50, left: 50}
 
-let w = 1100 - m.left - m.right;
+let w = 1000 - m.left - m.right;
 let h = 420 - m.top - m.bottom;
 // let padding = 20;
 

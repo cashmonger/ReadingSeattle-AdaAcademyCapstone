@@ -42,25 +42,54 @@
   </div>
 </section>
 
-  <section class="form__placeholder">
+  <section class="internal form__placeholder">
     xyz
   </section>
 </form>
+
+<div class="upper__placeholder">
+  placeholder row 3
+</div>
+
+<div class="lower__placeholder">
+  placeholder row 4
+</div>
 <!-- </section> -->
 
 
 <aside class='viz results__viz'>
+
   {% if data %}
     <script>var trendData = {{ data | tojson | safe }};</script>
     <script type="text/javascript" src="../static/js/trends.js">
     </script>
-  {% endif %}
 
-  {% if cdata %}
+
+  {% elif cdata %}
   <script>var graphData = {{ cdata | tojson | safe }};</script>
   <script type="text/javascript" src="../static/js/display.js">
 
   </script>
+
+  {% else %}
+  <div class="filler-text">
+    <p>
+        Ada Developer's Academy: A Capstone Project
+    </p>
+    <p>
+        Amy Cash.  Elmont, NY.
+    </p>
+    <p>
+        Doubleday (1972)
+    </p>
+
+    <p>
+        FOR IN LIBRARY USE ONLY
+    </p>
+    <p>
+        NOT AVAILABLE FOR INTERLIBRARY LOAN
+    </p>
+  </div>
   {% endif %}
 
 </aside>
@@ -81,8 +110,7 @@
       <td>{{  item.annualcount }}</td>
     </tr>
     {% endfor %}
-    {% else %}
-      <h3>Nothing is here</h3>
+
     {% endif %}
   </table>
 </section>
@@ -93,7 +121,7 @@
       <div class='viz button-group'>
         <button>1 Hit WondErs</button>
         <button>Seattle StereoTypes</button>
-        <a href="{{ url_for('display') }}" class="display">DISPLAY</a>
+        <a href="{{ url_for('display') }}" class="display">Digital Checkouts</a>
         <button>Best Sellers</button>
       </div>
 </section>

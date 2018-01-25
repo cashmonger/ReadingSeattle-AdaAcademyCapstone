@@ -25,9 +25,9 @@ body {
   min-height: 100vh;
   min-width: 100;
   grid-template-columns: 260px 35px 1fr 1fr 1fr;
-  grid-template-rows: 100px
+  grid-template-rows: 80px
   minmax(90px, auto)
-  minmax(10px, 250px)
+  minmax(0px, 250px)
   minmax(90px, auto)
   50px;
 }
@@ -58,6 +58,22 @@ body {
   grid-row: 2 / 5;
 }
 
+.card_container .gutter3 {
+  background-color: orange;
+  border-left: 2px solid #F53126;
+  border-right: 2px solid #F53126;
+  grid-column: 2;
+  grid-row: 3 / 5;
+}
+
+.card_container .gutter4 {
+  background-color: #e5c88f;
+  border-left: 2px solid #F53126;
+  border-right: 2px solid #F53126;
+  grid-column: 2;
+  grid-row: 4 / 5;
+}
+
 
 .card_container header {
   border-bottom: 2px solid #F53126;
@@ -72,6 +88,7 @@ body {
 /* Form  */
 
 .card_container .form__search {
+  background-color: red;
   border-bottom: 2px dotted blue;
   grid-column: 1;
   grid-row: 2;
@@ -88,6 +105,7 @@ body {
 }
 
 .form__placeholder {
+  background-color: green;
   border: 2px solid green;
   grid-column: 1;
   grid-row: 2;
@@ -95,6 +113,7 @@ body {
 
 /*  First column filler rows */
   .card_container .upper__placeholder {
+    background-color: purple;
     border: 2px solid purple;
     grid-column: 1;
     grid-row: 3;
@@ -102,6 +121,7 @@ body {
 
 
 .card_container .lower__placeholder {
+  background-color: white;
   border: 2px solid black;
   grid-column: 1;
   grid-row: 4;

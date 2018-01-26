@@ -28,7 +28,6 @@
   <form method="POST" action={{ url_for('index') }} class="form form__search second_box">
     {{ form.hidden_tag() }}
 
-
     <section class="form__contents left">
 
       <div class="form__category">
@@ -57,7 +56,6 @@
 
   <div class="lower__placeholder">
   </div>
-  <!-- </section> -->
 
   <aside class='viz results_viz'>
 
@@ -88,11 +86,8 @@
       <p>
         NOT AVAILABLE FOR INTERLIBRARY LOAN
       </p>
-      <p>
-        Seattle &copy; 2018
-      </p>
       <p id="final-p">
-        a: Da : acAd: 11; 28 emy;
+        Seattle &copy; 2018
       </p>
     </div>
     {% endif %}
@@ -105,7 +100,7 @@
       <th>Year</th>
       <th>Material Type</th>
       <th>Title</th>
-      <th>Annual Count</th>
+      <th># of Checkouts</th>
 
       {% for item in text %}
       <tr>
@@ -117,7 +112,12 @@
       {% endfor %}
 
       {% else %}
-      notthing to see here
+      <p class="empty">
+        a: Da : acAd: 11; 28 emy;
+      </p>
+      <p class="empty">
+        ISBN: 818o1972 (hardcover)
+      </p>
 
       {% endif %}
     </table>
@@ -132,19 +132,19 @@
     </div>
 
     <div class="decorative">
-      ISBN: 818o1972 (hardcover)
+
     </div>
 
   </section>
 
   <footer>
     Data Courtesy
-    <a href="https://www.spl.org">The Seattle Public Library</a>
+    <a href="https://www.spl.org">The Seattle Public Library </a>
     by
     <svg height="80" width="80" >
       <circle cx="40" cy="40" r="20" fill="black"/></circle>
     </svg>way of
-    <a href="https://data.seattle.gov/">City of Seattle Open Data</a>
+    <a href="https://data.seattle.gov/"> City of Seattle Open Data</a>
   </footer>
 
 </section> <!-- end main card container -->

@@ -23,14 +23,14 @@ body {
 
   /*  grid properties */
   display: grid;
-  min-height: 100vh;
-  min-width: 100;
+  min-height: 95vh;
+  min-width: 95%;
   grid-template-columns: 260px 35px 1fr 1fr 1fr;
   grid-template-rows:
   70px
   minmax(90px, 450px)
   minmax(50px, 150px)
-  50px
+  minmax(60px, auto)
   50px;
 }
 
@@ -141,11 +141,19 @@ grid-row: 2;
 
 .card_container .results__scroll {
 border-bottom: 2px solid red;
+border-top: 2px dotted blue;
 grid-column: 3 / -1;
 grid-row: 3;
 overflow: auto;
 }
 
+.card_container .results__scroll .empty {
+  border-bottom: 2px dotted blue;
+  border-top: 2px dotted blue;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
 
 /* Buttons and Decorative Stuff */
 
@@ -155,7 +163,7 @@ overflow: auto;
 
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: minmax(50px auto);
+  grid-template-rows: minmax(60px auto);
 }
 
 .card_container .card-bottom .subjects {
@@ -198,7 +206,6 @@ padding-bottom: 0;
 .card_container .card-bottom .card_container .decorative {
   grid-column: 3;
   grid-row: 1;
-  margin: 0;
   padding: 0;
 }
 

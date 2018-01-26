@@ -29,6 +29,7 @@ let stackx = d3.stack()
 // //Easy colors accessible via a 10-step ordinal scale
 var colorsxd =  d3.scaleOrdinal(d3.schemeCategory10);
 
+
 console.log("Here is the dataset")
 console.log(dataset);
 

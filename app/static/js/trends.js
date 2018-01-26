@@ -36,8 +36,9 @@ let series = stack(trendDataset);
 console.log('series: ');
 console.log(series);
 //Easy colors accessible via a 10-step ordinal scale
-let colors = d3.scaleOrdinal(d3.schemeCategory20);
-
+// let colors = d3.scaleOrdinal(d3.schemeCategory20);
+var colors = d3.scaleOrdinal()
+    .range(["#283c6e", "#92aa99","#798178","#E7CEAD","#C1A16F"]);
 //Set up scales
 var xtScale = d3.scaleBand()
   .domain(d3.range(trendDataset.length))
@@ -58,8 +59,6 @@ let xAxisScale = d3.scaleTime()
   d3.min(trendDataset, function(d) { return d.year; } ),
   d3.max(trendDataset, function(d) { return d.year; } )
   //
-  // d3.min(trendDataset, function(d) { return d.year; }),
-  // d3.max(trendDataset, function(d) { return d.year; })
 ])
 .range( [0, width] );
 
@@ -87,7 +86,6 @@ var svg = d3.select("aside")
       .append("g")
       .attr("class", "maingroup")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
 
 console.log("Creating Groups")
 // Add a group for each row of data

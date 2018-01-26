@@ -28,9 +28,9 @@ body {
   grid-template-columns: 260px 35px 1fr 1fr 1fr;
   grid-template-rows:
   70px
-  minmax(90px, 450px)
-  minmax(50px, 150px)
-  minmax(60px, auto)
+  minmax(90px, 420px)
+  minmax(50px, 175px)
+  minmax(50px, auto)
   50px;
 }
 
@@ -84,6 +84,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 5px;
 }
 
 /* Form  */
@@ -116,12 +117,10 @@ body {
     grid-row: 3;
   }
 
-
 .card_container .lower__placeholder {
   grid-column: 1;
   grid-row: 4;
 }
-
 
 /*  Results */
 
@@ -141,15 +140,15 @@ grid-row: 2;
 
 .card_container .results__scroll {
 border-bottom: 2px solid red;
-border-top: 2px dotted blue;
+border-top: 2px double blue;
 grid-column: 3 / -1;
 grid-row: 3;
 overflow: auto;
 }
 
 .card_container .results__scroll .empty {
-  border-bottom: 2px dotted blue;
-  border-top: 2px dotted blue;
+  border-bottom: 2px double #88A3B3;
+  border-top: 2px double #88A3B3;
   display: flex;
   align-items: right;
   justify-content: right;
@@ -175,9 +174,6 @@ margin-top: 8px;
 }
 
 .card_container .viz__buttons {
-/* display: flex;
-grid-column: 4;
-grid-row: 4; */
 grid-column: 2;
 grid-row: 1;
 margin-bottom: 0;

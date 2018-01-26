@@ -29,125 +29,123 @@
     {{ form.hidden_tag() }}
 
 
-  <section class="form__contents left">
+    <section class="form__contents left">
 
-  <div class="form__category">
-    {{ form.select_category.label }}<br>
-    {{ form.select_category }}<br>
+      <div class="form__category">
+        {{ form.select_category.label }}<br>
+        {{ form.select_category }}<br>
+      </div>
+      <div class="form__title">
+        {{ form.search_terms.label }}<br>
+        {{ form.search_terms }}<br>
+      </div>
+      <div class="form__author">
+        {{ form.author_last.label }}<br>
+        {{ form.author_last }}<br>
+      </div>
+      <div class="form__submit">
+        {{ form.submit() }}
+      </div>
+    </section>
+
+    <section class="internal form__placeholder">
+    </section>
+  </form>
+
+  <div class="upper__placeholder">
   </div>
-  <div class="form__title">
-    {{ form.search_terms.label }}<br>
-    {{ form.search_terms }}<br>
+
+  <div class="lower__placeholder">
   </div>
-  <div class="form__author">
-    {{ form.author_last.label }}<br>
-    {{ form.author_last }}<br>
-  </div>
-  <div class="form__submit">
-    {{ form.submit() }}
-  </div>
-</section>
+  <!-- </section> -->
 
-  <section class="internal form__placeholder">
-    xyz
-  </section>
-</form>
+  <aside class='viz results_viz'>
 
-<div class="upper__placeholder">
-</div>
-
-<div class="lower__placeholder">
-</div>
-<!-- </section> -->
-
-
-<aside class='viz results__viz'>
-
-  {% if data %}
+    {% if data %}
     <script>var trendData = {{ data | tojson | safe }};</script>
     <script type="text/javascript" src="../static/js/trends.js">
     </script>
 
 
-  {% elif cdata %}
+    {% elif cdata %}
     <script>var graphData = {{ cdata | tojson | safe }};</script>
     <script type="text/javascript" src="../static/js/display.js"></script>
 
-  {% else %}
-  <div class="filler-text">
-    <p>
-        Ada Developer's Academy: A Capstone Project
-    </p>
-    <p>
-        Amy Cash.  Elmont, NY.
-    </p>
-    <p>
-        Doubleday (1972)
-    </p>
-
-    <p>
-        FOR IN LIBRARY USE ONLY
-    </p>
-    <p>
-        NOT AVAILABLE FOR INTERLIBRARY LOAN
-    </p>
-  </div>
-  {% endif %}
-
-</aside>
-
-<section class="results__scroll right">
-  <table class="table results__table">
-    {% if text %}
-    <th>Year</th>
-    <th>Material Type</th>
-    <th>Title</th>
-    <th>Annual Count</th>
-
-    {% for item in text %}
-    <tr>
-      <td>{{  item.checkoutyear }}</td>
-      <td>{{  item.material}}</td>
-      <td>{{  item.title }}</td>
-      <td>{{  item.annualcount }}</td>
-    </tr>
-    {% endfor %}
-
     {% else %}
-    notthing to see here
-
+    <div class="filler-text">
+      <p>
+        Ada Developer's Academy: A Capstone Project
+      </p>
+      <p>
+        Amy Cash.  Elmont, NY.
+      </p>
+      <p>
+        Doubleday (1972)
+      </p>
+      <p>
+        FOR IN LIBRARY USE ONLY
+      </p>
+      <p>
+        NOT AVAILABLE FOR INTERLIBRARY LOAN
+      </p>
+      <p>
+        Seattle &copy; 2018
+      </p>
+      <p id="final-p">
+        a: Da : acAd: 11; 28 emy;
+      </p>
+    </div>
     {% endif %}
-  </table>
-</section>
-
-<h3 class="viz subjects">Subjects:</h3>
-
-<section class="viz viz__buttons">
-      <div class='viz button-group'>
-        <button>1 Hit WondErs</button>
-        <button>Seattle StereoTypes</button>
-        <a href="{{ url_for('display') }}" class="display">Digital Checkouts</a>
-        <button>Best Sellers</button>
-      </div>
-</section>
+  </aside>
 
 
+  <section class="results__scroll right">
+    <table class="table results__table">
+      {% if text %}
+      <th>Year</th>
+      <th>Material Type</th>
+      <th>Title</th>
+      <th>Annual Count</th>
 
-<div class="bottom">
-<p>Seattle &copy; 2018</p>
-<p>a: Da : acAd: 11; 28 emy; </p>
-<p>ISBN: 818o1972 (hardcover)</p>
-</div>
+      {% for item in text %}
+      <tr>
+        <td>{{  item.checkoutyear }}</td>
+        <td>{{  item.material}}</td>
+        <td>{{  item.title }}</td>
+        <td>{{  item.annualcount }}</td>
+      </tr>
+      {% endfor %}
 
-<footer>
-  Data Courtesy
-  <a href="https://www.spl.org">The Seattle Public Library</a>
-   by
-  <svg height="80" width="80" >
-    <circle cx="40" cy="40" r="20" fill="black"/></circle>
-  </svg>way of
-  <a href="https://data.seattle.gov/">City of Seattle Open Data</a>
-</footer>
+      {% else %}
+      notthing to see here
+
+      {% endif %}
+    </table>
+  </section>
+
+  <section class="card-bottom">
+
+    <h3 class="viz subjects">Subjects:</h3>
+
+    <div class="viz viz__buttons">
+        <button>1 Hit WondErs</button><a href="{{ url_for('display') }}" class="display">Digital Checkouts</a>
+    </div>
+
+    <div class="decorative">
+      ISBN: 818o1972 (hardcover)
+    </div>
+
+  </section>
+
+  <footer>
+    Data Courtesy
+    <a href="https://www.spl.org">The Seattle Public Library</a>
+    by
+    <svg height="80" width="80" >
+      <circle cx="40" cy="40" r="20" fill="black"/></circle>
+    </svg>way of
+    <a href="https://data.seattle.gov/">City of Seattle Open Data</a>
+  </footer>
 
 </section> <!-- end main card container -->
 
